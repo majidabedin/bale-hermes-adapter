@@ -1,0 +1,31 @@
+name: bale-platform
+label: Bale
+kind: platform
+version: 1.0.0
+description: >
+  Bale messenger gateway adapter for Hermes Agent.
+  Uses long-polling (getUpdates) against the Bale Bot API
+  (https://tapi.bale.ai/bot<TOKEN>/<method>), which is
+  Telegram Bot API-compatible.  No extra dependencies —
+  only aiohttp (already bundled with Hermes).
+author: Nous Research
+
+requires_env:
+  - name: BALE_BOT_TOKEN
+    description: "Bale bot token (from @BotFather on Bale)"
+    prompt: "Bale bot token"
+    password: true
+
+optional_env:
+  - name: BALE_ALLOWED_USERS
+    description: "Comma-separated Bale user IDs allowed to message the bot (empty = allow all)"
+    prompt: "Allowed user IDs (comma-separated, or empty for all)"
+    password: false
+  - name: BALE_ALLOW_ALL_USERS
+    description: "Allow every user to talk to the bot (true/false, default false)"
+    prompt: "Allow all users? (true/false)"
+    password: false
+  - name: BALE_HOME_CHANNEL
+    description: "Default chat_id for cron / notification delivery"
+    prompt: "Home channel chat ID (optional)"
+    password: false
